@@ -1,18 +1,9 @@
-<style>
-    .space-2{
-        margin: 0px 2px 0px 2px;
-    }
-    .color-red{
-        color:red;
-    }
-</style>
-
 # <div style='display:flex;justify-content:center;'><p>Pizza House<p></div>
 <div style='display:flex;justify-content:center;'>
-    <img class='space-2' src='https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white' />
-    <img class='space-2' src='https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white'/>
-    <img class='space-2' src='https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white'/>
-    <img class='space-2' src='https://img.shields.io/badge/rabbitmq-%23FF6600.svg?&style=for-the-badge&logo=rabbitmq&logoColor=white'/>
+    <img style='margin: 0px 2px 0px 2px;' src='https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white' />
+    <img style='margin: 0px 2px 0px 2px;' src='https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white'/>
+    <img style='margin: 0px 2px 0px 2px;' src='https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white'/>
+    <img style='margin: 0px 2px 0px 2px;' src='https://img.shields.io/badge/rabbitmq-%23FF6600.svg?&style=for-the-badge&logo=rabbitmq&logoColor=white'/>
 </div>
 
 

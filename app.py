@@ -1,16 +1,17 @@
 from http import HTTPStatus
 import json
-from flask import Flask, jsonify, request
+from flask import jsonify, request
 from flask_pymongo import PyMongo, ObjectId
 from flask_cors import CORS
 from models import Orders, OrderView
 from RabbitQueue import sendIntoQueue
-import pika
+from start import create_app
 
-app = Flask(__name__)
+
+app = create_app()
+
 CORS(app)
-
-client = PyMongo(app, uri="mongodb+srv://mrsnape:o4p53scMlQm1By0p@cluster0.rxvm0.mongodb.net/pizza_house")
+client = PyMongo(app, uri=app.config.get('DATABASE_URI'))
 db = client.db
 
 @app.route("/welcome", methods=["GET"])
@@ -19,7 +20,6 @@ def index():
         return jsonify(message="Welcome to Pizza House", status=HTTPStatus.OK)
     except:
         return jsonify(message="Some Error Occurred", status=HTTPStatus.BAD_REQUEST)
-    
     
 @app.route("/order", methods=["POST"])
 def insertData():
@@ -34,13 +34,11 @@ def insertData():
     
 @app.route("/orderByQueue", methods=["POST"])
 def insertDataIntoQueue():
-    print(json.loads(request.get_data().decode()).get("orders"))
     order = json.loads(request.get_data().decode()).get("orders")
     sendIntoQueue.sender(order)
     order_obj = Orders(order = order)
-    print(order_obj.dict())
     response = db.orders.insert_one(order_obj.dict())
-    return jsonify(id=str(response.inserted_id), status=HTTPStatus.OK)
+    return jsonify(id=str(response.inserted_id), status=HTTPStatus.CREATED)
     
     
 @app.route("/getorders", methods=["GET"])

@@ -6,6 +6,9 @@
     <img style='margin: 0px 2px 0px 2px;' src='https://img.shields.io/badge/rabbitmq-%23FF6600.svg?&style=for-the-badge&logo=rabbitmq&logoColor=white'/>
 </div>
 
+<div style='display:flex;justify-content:center;'>
+    <img style='margin: 0px 2px 0px 2px;' src='https://github.com/champgourav007/Pizza-House-API/actions/workflows/python-package.yml/badge.svg' />
+</div>
 
 ## About
 1. This is `Flask` based project which constitutes API to perform several functions.
